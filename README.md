@@ -25,9 +25,22 @@ pip install -r requirements.txt
 python examples/recipe01_numberline.py
 ```
 
+本に載っている実行結果と同じになるかは、次で確かめられます。
+
+```bash
+python -m pytest -q        # examples/ を全部実行し、outputs/ と比べる
+ruff format --check . && ruff check .
+```
+
 ## ファイル構成
 
-- `examples/` — 各レシピのコード（`recipeNN_<内容>.py`）。本書の写経対象そのまま
+- `examples/` — 本書のコード（1ブロック1ファイル）。本書はこのファイルをそのまま差し込んで作っています
+  - `recipeNN_<内容>.py` … 各レシピの「動かしてみる」
+  - `recipeNN_<内容>_why.py` … 「なぜこうなるの」
+  - `recipeNN_<内容>_try.py` … 「ちょっと変えてみる」
+  - `setup_N.py` … 準備編（Colab の使い方）
+- `outputs/` — 本書に載っている実行結果（`examples/` の同じ名前のファイルを実行した結果）
+- `tests/` — `examples/` を実行して `outputs/` と一致するかを確かめるテスト
 - `requirements.txt` — 追加で必要なライブラリ（Colab には多くが標準で入っています）
 
 ## 動作環境
