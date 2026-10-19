@@ -1,7 +1,8 @@
 import random
 from collections import Counter
 
-# 毎回おなじ結果が出るようにするおまじない
+# 乱数の出発点（種）を0に決める。
+# 毎回おなじ結果になる
 random.seed(0)
 
 kekka = Counter()  # どの目が何回出たかを数える入れ物
